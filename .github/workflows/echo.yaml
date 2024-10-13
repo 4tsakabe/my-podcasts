@@ -1,0 +1,23 @@
+name: Echo Example
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  echo_job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Echo for push or manual trigger
+      run: |
+        if [ "${{ github.event_name }}" == "push" ]; then
+          echo "This was triggered by a push event"
+        elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+          echo "This was triggered manually"
+        fi
