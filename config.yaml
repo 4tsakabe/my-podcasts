@@ -1,0 +1,5 @@
+channels:
+  - id: "sample"
+    name: "Example Channel"
+  - id: "sample2"
+    name: "Example Channel 2"
